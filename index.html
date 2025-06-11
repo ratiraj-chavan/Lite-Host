@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StaticHost - Deploy Your Sites Instantly</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 Lite-Host</h1>
+            <p>Deploy your static websites instantly with drag & drop</p>
+        </div>
+
+        <!-- Authentication Section -->
+        <div class="auth-container" id="authContainer">
+            <div id="loginForm">
+                <h2 style="text-align: center; margin-bottom: 20px; color: #333;">Welcome Back</h2>
+                <div class="form-group">
+                    <label for="loginEmail">Email</label>
+                    <input type="email" id="loginEmail" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" placeholder="Enter your password" required>
+                </div>
+                <button class="btn" onclick="login()">Sign In</button>
+                <button class="btn btn-secondary" onclick="showSignup()">Create Account</button>
+            </div>
+
+            <div id="signupForm" style="display: none;">
+                <h2 style="text-align: center; margin-bottom: 20px; color: #333;">Create Account</h2>
+                <div class="form-group">
+                    <label for="signupName">Full Name</label>
+                    <input type="text" id="signupName" placeholder="Enter your full name" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupEmail">Email</label>
+                    <input type="email" id="signupEmail" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupPassword">Password</label>
+                    <input type="password" id="signupPassword" placeholder="Create a password" required>
+                </div>
+                <button class="btn" onclick="signup()">Create Account</button>
+                <button class="btn btn-secondary" onclick="showLogin()">Back to Sign In</button>
+            </div>
+        </div>
+
+        <!-- Dashboard Section -->
+        <div class="dashboard" id="dashboard">
+            <div class="user-info">
+                <div class="welcome-text">Welcome, <span id="userName"></span>!</div>
+                <button class="logout-btn" onclick="logout()">Logout</button>
+            </div>
+
+            <!-- Upload Section -->
+                
+            <div class="upload-section">
+                <h2 class="section-title">📁 Upload Your Files</h2>
+                <div class="drop-zone" id="dropZone" onclick="document.getElementById('fileInput').click()">
+                    <div class="drop-zone-content">
+                        <div class="drop-zone-icon">📁</div>
+                        <h3>Drag & Drop Your Files Here</h3>
+                       <input type="file" id="fileInput" multiple webkitdirectory class="hidden-input" />
+                        <p>Or click to browse and select files</p>
+                        <small>Supports HTML, CSS, JS, and other web assets</small>
+                    </div>
+                </div>
+            
+                
+                <div class="file-list" id="fileList" style="display: none;">
+                    <h4>Uploaded Files:</h4>
+                    <div id="fileItems"></div>
+                </div>
+            </div>
+
+            <!-- Deploy Section -->
+            <div class="deploy-section">
+                <button class="deploy-btn" id="deployBtn" onclick="deployWebsite()" disabled>
+                    🚀 Deploy Website
+                </button>
+                <div class="loading" id="loading">
+                    <div class="spinner"></div>
+                    <p>Deploying your website...</p>
+                </div>
+                <div class="success-message" id="successMessage"></div>
+                <div class="error-message" id="errorMessage"></div>
+            </div>
+
+            <!-- Sites List -->
+            <div class="sites-list">
+                <h2 class="section-title">🌐 Your Deployed Sites</h2>
+                <div id="sitesList">
+                    <p style="text-align: center; color: #666; padding: 20px;">No sites deployed yet. Upload some files and deploy your first website!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
